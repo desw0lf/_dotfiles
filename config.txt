@@ -1,0 +1,7 @@
+env:git=~/
+vscode-custom=~/.config/vscode-custom
+wezterm=~/.config/wezterm
+zsh=~/
+oh-my-zsh=~/.oh-my-zsh
+husky=~/
+env:m2=~/.m2

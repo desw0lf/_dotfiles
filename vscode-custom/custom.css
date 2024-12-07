@@ -1,0 +1,171 @@
+:root {
+  --traffic-padding: 68px;
+  --header-height: 32px;
+}
+
+/* ==START header start */
+
+.title.tabs {
+  --editor-group-tab-height: var(--header-height) !important;
+}
+.monaco-workbench .part>.title {
+  height: var(--header-height) !important;
+  .monaco-workbench .part>.title>.title-actions {
+    height: var(--header-height) !important;
+  }
+  .title-label {
+    line-height: var(--header-height) !important;
+  }
+}
+.monaco-breadcrumbs {
+  margin-left: calc(var(--traffic-padding) * -1);
+}
+/* ==END header start */
+
+/* ==START drags */
+.sidebar.right .title-label {
+  flex-grow: 1;
+}
+.left-items.items-container::after, .tabs-container::after {
+  content: "";
+  flex-grow: 1;
+}
+.sidebar.right .title-label, .left-items.items-container::after, .tabs-container::after {
+  -webkit-app-region: drag;
+}
+/* ==END drags */
+
+.editor .title {
+  /* background: radial-gradient(ellipse at right bottom, #ffffff00 0%, #ffffff00 88%, var(--project-accent) 100%) !important; */
+  background: transparent !important;
+  .monaco-scrollable-element {
+    padding-left: var(--traffic-padding);
+    width: calc(100% - var(--traffic-padding));
+  }
+}
+
+/* scrollbar for header tabs */
+.monaco-workbench .part.editor>.content .editor-group-container>.title>.tabs-and-actions-container>.monaco-scrollable-element .scrollbar {
+  opacity: 0;
+}
+
+.actions-container.highlight-toggled {
+  display: none !important;
+}
+
+.sidebar.right {
+  /* .composite.title {
+    background: rgb(0 0 0 / 4%); border-bottom: 1px solid rgb(255 255 255 / 3%);
+  } */
+  /* .composite.title h2 {
+    color: var(--project-accent) !important;
+  } */
+  .actions-container[aria-label^='Explorer:'] .codicon-toolbar-more {
+      display: none !important;
+  }
+  .actions-container .action-item:last-child {
+    margin-right: 0;
+  }
+  .content .shadow.top {
+    display: none;
+  }
+}
+
+div.monaco-workbench .sidebar .has-composite-bar {
+  padding-left: 0;
+  .composite-bar-container {
+    justify-content: center;
+  }
+}
+
+.decorationsOverviewRuler {
+  visibility: hidden;
+}
+
+.editor {
+  .scrollbar .slider {
+    opacity: 0.1;
+    transition: opacity 0.2s ease;
+  }
+  .scrollbar:hover .slider {
+    opacity: 1;
+  }
+  .scroll-decoration {
+    display: none; /* ".editor .scroll-decoration": "background: rgb(255 255 255 / 3%);box-shadow:none;height: 1px;margin-top: 2px;" */
+  }
+  .tabs-and-actions-container.tabs-border-bottom {
+    --tabs-border-bottom-color: transparent !important;
+  }
+  .tab.active .tab-border-top-container {
+    height: 2px !important;
+    background: linear-gradient(90deg, rgb(69,154,153) 0%, rgb(199,63,184) 50%, rgb(238,188,147) 100%);
+    margin-left: -1px;
+    padding-right: 2px;
+  }
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container>.title .editor-actions {
+  padding: 0;
+}
+
+.monaco-editor .cursor {
+  background: linear-gradient(to bottom, #ffd2d2, #ffe1e1) !important;
+}
+
+/* ==START: Pretty TS Errors */
+.codicon-none {
+  user-select: text !important; -webkit-user-select: text !important;
+}
+/* HIDE OLD ERRORS */
+div.monaco-hover-content:has(.codicon-none) > .hover-row:first-child {
+  display: none !important;
+}
+div.monaco-hover-content:has([style="color:#f96363;"]) > .hover-row:first-child {
+  display: none !important;
+}
+.monaco-hover .monaco-hover-content {
+  display: flex;
+  flex-direction: column;
+  .hover-row {
+    order: 2;
+  }
+  .hover-row:has(.codicon-none) { 
+    order: 1;
+  }
+}
+/* CHANGE ORDER: */
+/* .monaco-hover .monaco-hover-content {
+  display: flex;
+  flex-direction: column;
+  .hover-row {
+    order: 2;
+  }
+  .hover-row:has(.codicon-none) {
+    order: 1;
+    background: #1D282E;
+    border: 2px dashed #0075BC !important;
+  }
+  .hover-row:has([style="color:#f96363;"]) {
+    order: 1;
+    background: orange !important;
+  }
+} */
+/* ==END: Pretty TS Errors */
+
+/* 
+.editor .title .actions-container .action-item a { 
+  display: none; 
+}
+.editor .title .actions-container { 
+  flex-direction: row-reverse;
+}
+.overflow-guard:hover .decorationsOverviewRuler {
+  visibility: visible;
+}
+.quick-input-widget {
+  width: 46% !important;
+  left: 50% !important;
+  transform: translate(-50%, 0) !important;
+  margin-left: unset !important;
+}
+*/
